@@ -1,0 +1,70 @@
+@font-face {
+    font-family: 'BrassMono';
+    src: url('brassmono.ttf') format('truetype');
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    background-color: #590D22;
+}
+
+
+.intro {
+    color: #FFF0F3;
+    font-family: 'BrassMono', monospace;
+    text-shadow: 2px 2px #FF4D6D;
+}
+
+.intro a {
+    color: #FFF0F3;
+    text-decoration: none;
+    font-size: 30px;
+    text-shadow: 2px 2px #FF8FA3;
+}
+
+
+p {
+    font-size: 30px;
+    text-indent: 30px;
+}
+
+span {
+    font-size: 30px;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    color: #FFF0F3; 
+    text-decoration: none; 
+    font-size: 30px;
+}
+
+li {
+    color: #FFCCD5;
+    font-size: 30px;
+}
+
+section {
+    min-height: 100vh; 
+    display: flex;
+    align-items: center;
+    place-items: center;
+    justify-content: center;
+}
+
+
+.paragraph {
+    color: #FFF0F3;
+    font-family: 'BrassMono', monospace;
+    text-shadow: 2px 2px #FF8FA3;
+}
+
+.punctuation {
+    color: #FFF0F3;
+    font-family: 'BrassMono', monospace;
+    text-shadow: 2px 2px #FFB3C1;
+}
