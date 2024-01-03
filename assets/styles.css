@@ -20,13 +20,13 @@ html, body {
     color: #FFF0F3;
     text-decoration: none;
     font-size: 30px;
-    text-shadow: 2px 2px #FF8FA3;
+    text-shadow: 2px 2px #d3687b;
     letter-spacing: 2px; 
     transition: text-shadow 0.3s ease, letter-spacing 0.3s ease; 
 }
 
 .intro a:hover {
-    text-shadow: 2px 2px #ff1a44;
+    text-shadow: 2px 2px #af214a;
     letter-spacing: 6px; 
 }
 
