@@ -10,17 +10,24 @@ html, body {
 }
 
 
-.intro {
+.intro { /* description text */
     color: #FFF0F3;
     font-family: 'BrassMono', monospace;
     text-shadow: 2px 2px #FF4D6D;
 }
 
-.intro a {
+.intro a { /* clickable text */
     color: #FFF0F3;
     text-decoration: none;
     font-size: 30px;
     text-shadow: 2px 2px #FF8FA3;
+    letter-spacing: 2px; 
+    transition: text-shadow 0.3s ease, letter-spacing 0.3s ease; 
+}
+
+.intro a:hover {
+    text-shadow: 2px 2px #ff1a44;
+    letter-spacing: 6px; 
 }
 
 
@@ -37,15 +44,11 @@ ul {
     list-style: none;
 }
 
-a {
-    color: #FFF0F3; 
-    text-decoration: none; 
-    font-size: 30px;
-}
 
-li {
-    color: #FFCCD5;
+li {        
+    color: #FFF0F3;
     font-size: 30px;
+    text-shadow: 2px 2px #FF4D6D;
 }
 
 section {
@@ -57,13 +60,13 @@ section {
 }
 
 
-.paragraph {
+.paragraph { /* p text */
     color: #FFF0F3;
     font-family: 'BrassMono', monospace;
     text-shadow: 2px 2px #FF8FA3;
 }
 
-.punctuation {
+.comment {  /* comment text */
     color: #FFF0F3;
     font-family: 'BrassMono', monospace;
     text-shadow: 2px 2px #FFB3C1;
