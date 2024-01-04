@@ -6,28 +6,44 @@
 html, body {
     margin: 0;
     padding: 0;
-    background-color: #590D22;
+    background-color: #110b11;
 }
 
 
 .intro { /* description text */
-    color: #FFF0F3;
+    color: #edf2ef;
     font-family: 'BrassMono', monospace;
-    text-shadow: 2px 2px #FF4D6D;
+    text-shadow: 2px 2px #666466;
 }
 
-.intro a { /* clickable text */
-    color: #FFF0F3;
+a {
+    color: #edf2ef;
     text-decoration: none;
     font-size: 30px;
-    text-shadow: 2px 2px #d3687b;
-    letter-spacing: 2px; 
-    transition: text-shadow 0.3s ease, letter-spacing 0.3s ease; 
+    text-shadow: 2px 2px #666466;
+    letter-spacing: 0;
+    transition: text-shadow 0.3s ease, letter-spacing 0.3s ease, transform 0.5s ease;
+    display: inline-block; 
+    box-sizing: border-box;
+    text-indent: initial;
 }
 
-.intro a:hover {
-    text-shadow: 2px 2px #af214a;
+
+a:hover {
     letter-spacing: 6px; 
+}
+
+@keyframes jump {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px); /* Adjust the jump height */
+    }
+}
+
+a:not(:hover) {
+    animation: jump 1s infinite;
 }
 
 
@@ -40,16 +56,6 @@ span {
     font-size: 30px;
 }
 
-ul {
-    list-style: none;
-}
-
-
-li {        
-    color: #FFF0F3;
-    font-size: 30px;
-    text-shadow: 2px 2px #FF4D6D;
-}
 
 section {
     min-height: 100vh; 
@@ -61,13 +67,14 @@ section {
 
 
 .paragraph { /* p text */
-    color: #FFF0F3;
+    color: #edf2ef;
     font-family: 'BrassMono', monospace;
-    text-shadow: 2px 2px #FF8FA3;
+    text-shadow: 2px 2px #666466;
+    text-indent: 30px;
 }
 
 .comment {  /* comment text */
-    color: #FFF0F3;
+    color: #edf2ef;
     font-family: 'BrassMono', monospace;
-    text-shadow: 2px 2px #FFB3C1;
+    text-shadow: 2px 2px #666466;
 }
