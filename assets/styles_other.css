@@ -1,0 +1,115 @@
+@font-face {
+    font-family: 'BrassMono';
+    src: url('brassmono.ttf') format('truetype');
+}
+
+canvas {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    height: 100vh;
+    z-index: 0; 
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    background-color: #110b11;
+}
+
+
+.intro { /* description text */
+    color: #edf2ef;
+    font-family: 'BrassMono', monospace;
+    text-shadow: 2px 2px #666466;
+    align-content: center;
+}
+
+svg path {
+    fill: #edf2ef; 
+}
+
+a {
+    color: #edf2ef;
+    text-decoration: none;
+    font-size: 30px;
+    text-shadow: 2px 2px #666466;
+    letter-spacing: 0;
+    transition: text-shadow 0.3s ease, letter-spacing 0.3s ease, transform 0.5s ease;
+    display: inline-block; 
+    box-sizing: border-box;
+    text-indent: initial;
+}
+
+
+a:hover {
+    letter-spacing: 6px; 
+}
+
+@keyframes jump {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px); 
+    }
+}
+
+a:not(:hover) {
+    animation: jump 1s infinite;
+}
+
+
+p {
+    font-size: 30px;
+    text-indent: 30px;
+}
+
+span {
+    font-size: 30px;
+}
+
+
+.landing {
+    min-height: 100vh; 
+    display: flex;
+    justify-content: center;
+    z-index: 1; 
+    position: relative;
+    margin-top: 80vh; /* Adjust this value as needed */
+}
+
+
+.other {
+    min-height: 100vh; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1; 
+    position: relative;
+}
+
+
+
+footer {
+    font-family: 'BrassMono', monospace;
+    font-size: 30px;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    padding: 20px 0; 
+    background-color: #110b11; 
+    z-index: 1;
+}
+
+
+
+
+
+
+
+

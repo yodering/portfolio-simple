@@ -3,10 +3,22 @@
     src: url('brassmono.ttf') format('truetype');
 }
 
+canvas {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    height: 100vh;
+    z-index: 0; 
+}
+
 html, body {
     margin: 0;
     padding: 0;
     background-color: #110b11;
+    overflow:hidden;
 }
 
 
@@ -17,7 +29,14 @@ html, body {
     align-content: center;
 }
 
-a {
+svg path {
+    fill: #edf2ef; 
+    transition: fill 0.5 ease;
+}
+
+
+
+.text {
     color: #edf2ef;
     text-decoration: none;
     font-size: 30px;
@@ -30,22 +49,10 @@ a {
 }
 
 
-a:hover {
+.text:hover {
     letter-spacing: 6px; 
 }
 
-@keyframes jump {
-    0%, 100% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-5px); /* Adjust the jump height */
-    }
-}
-
-a:not(:hover) {
-    animation: jump 1s infinite;
-}
 
 
 p {
@@ -58,69 +65,63 @@ span {
 }
 
 
-section {
+.landing {
+    height: 170vh; 
+    display: flex;
+    flex-direction: row; 
+    align-items: center;
+    justify-content: center;
+    z-index: 1; 
+    position: relative;
+}
+
+.landing .intro {
+    margin-right: 20px; 
+}
+
+.landing a {
+    display: block;
+    margin-right: 10px; 
+}
+
+.landing .intro:last-child,
+.landing a:last-child {
+    margin-right: 0; /* Remove margin for the last child to avoid unnecessary spacing */
+}
+
+.landing a:hover > svg path {
+    fill: #666466;
+    transition: fill 0.3s ease-in-out; 
+}
+
+
+.other {
     min-height: 100vh; 
     display: flex;
     align-items: center;
-    place-items: center;
     justify-content: center;
+    z-index: 1; 
+    position: relative;
 }
 
 
-.paragraph { /* p text */
-    color: #edf2ef;
+
+footer {
     font-family: 'BrassMono', monospace;
-    text-shadow: 2px 2px #666466;
-    text-indent: 30px;
+    font-size: 30px;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    padding: 20px 0; 
+    background-color: #110b11; 
+    z-index: 1;
 }
 
-.comment {  /* comment text */
-    color: #edf2ef;
-    font-family: 'BrassMono', monospace;
-    text-shadow: 2px 2px #666466;
-}
 
 
 
 
-/* New styles for responsiveness */
-@media screen and (max-width: 768px) {
-    html, body {
-        font-size: 16px; /* Adjust base font size for smaller screens */
-    }
 
-    a {
-        font-size: 24px; /* Decrease link font size for smaller screens */
-    }
 
-    p {
-        font-size: 24px; /* Decrease paragraph font size for smaller screens */
-        text-indent: 15px; /* Adjust paragraph indentation */
-    }
 
-    .paragraph {
-        font-size: 24px; /* Decrease paragraph text font size */
-        text-indent: 15px; /* Adjust paragraph text indentation */
-    }
-
-    .comment {
-        font-size: 24px; /* Decrease comment text font size */
-    }
-}
-
-@media screen and (max-width: 600px) {
-    /* Additional adjustments for smaller screens */
-
-    section {
-        min-height: auto; /* Remove fixed minimum height */
-    }
-
-    a {
-        display: block; /* Change link display to block for better stacking */
-        margin-bottom: 10px; /* Add space between links */
-    }
-
-    .intro {
-        text-align: center; /* Center align text in smaller screens */
-    }
-}
