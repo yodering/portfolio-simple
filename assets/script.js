@@ -6,16 +6,16 @@ let previousMousePosition = {
     y: 0
 };
 
-// Setup the scene, camera, and renderer
+// estup scene
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
 const renderer = new THREE.WebGLRenderer({ antialias: true });
-renderer.setClearColor(new THREE.Color("rgb(17, 11, 17)")); // Set the background color here
+renderer.setClearColor(new THREE.Color("rgb(17, 11, 17)")); 
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
 
 
-// Function to create a small cube of Rubik's Cube
+// create a small cube of Rubik's Cube
 function createSmallCube() {
   const smallCubeGeometry = new THREE.BoxGeometry(1, 1, 1);
   const faceMaterials = [
@@ -35,7 +35,7 @@ const cubeOffset = 1.05; // Slightly more than the size of a small cube to add s
 for (let x = 0; x < 3; x++) {
   for (let y = 0; y < 3; y++) {
     for (let z = 0; z < 3; z++) {
-      // Skip the inner cubes as they are not visible
+      // skip the inner cubes as they are not visible
       if (x === 1 && y === 1 && z === 1) continue;
       
       const smallCube = createSmallCube();
@@ -53,7 +53,6 @@ scene.add(rubiksCube);
 
 camera.position.z = 10;
 
-// Function to animate the Rubik's Cube
 function animate() {
   requestAnimationFrame(animate);
 
@@ -65,7 +64,7 @@ function animate() {
   renderer.render(scene, camera);
 }
 
-// Start the animation loop
+// start the animation loop
 animate();
 
 // Add event listeners for mouse input

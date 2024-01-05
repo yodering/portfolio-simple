@@ -68,7 +68,7 @@ span {
 
 
 .landing {
-    height: 170vh; 
+    height: 165vh; 
     display: flex;
     flex-direction: row; 
     align-items: center;
@@ -83,12 +83,14 @@ span {
 
 .landing a {
     display: block;
-    margin-right: 10px; 
+    margin-right: 10px;
+    filter: drop-shadow(2px 2px 4px #666466);
 }
+
 
 .landing .intro:last-child,
 .landing a:last-child {
-    margin-right: 0; /* Remove margin for the last child to avoid unnecessary spacing */
+    margin-right: 0; 
 }
 
 .landing a:hover > svg path {
