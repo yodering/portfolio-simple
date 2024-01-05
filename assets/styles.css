@@ -12,6 +12,7 @@ canvas {
     width: 100%;
     height: 100vh;
     z-index: 0; 
+    user-select: none;
 }
 
 html, body {
@@ -46,6 +47,7 @@ svg path {
     display: inline-block; 
     box-sizing: border-box;
     text-indent: initial;
+    user-select: none;
 }
 
 
