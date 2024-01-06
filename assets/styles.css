@@ -84,7 +84,6 @@ span {
 .landing a {
     display: block;
     margin-right: 10px;
-    filter: drop-shadow(2px 2px 4px #666466);
 }
 
 
@@ -93,9 +92,21 @@ span {
     margin-right: 0; 
 }
 
-.landing a:hover > svg path {
-    fill: #666466;
+.landing a > svg path {
+    fill: #edf2ef; 
     transition: fill 0.3s ease-in-out; 
+}
+
+.landing a[href="https://github.com/yodering"]:hover > svg path {
+    fill: rgb(170, 66, 190);
+}
+
+.landing a[href="https://www.linkedin.com/in/yodering/"]:hover > svg path {
+    fill: rgb(99, 157, 211);
+}
+
+.landing a[href="https://www.youtube.com/c/yodering"]:hover > svg path {
+    fill: rgb(235, 87, 87);
 }
 
 

@@ -6,65 +6,88 @@ let previousMousePosition = {
     y: 0
 };
 
-// estup scene
+let initialRotationSpeed = 0.05; // Faster initial rotation speed
+let currentRotationSpeed = initialRotationSpeed;
+
+// Setup scene
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
 const renderer = new THREE.WebGLRenderer({ antialias: true });
-renderer.setClearColor(new THREE.Color("rgb(17, 11, 17)")); 
+renderer.setClearColor(new THREE.Color("rgb(17, 11, 17)"));
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
 
-
-// create a small cube of Rubik's Cube
+// Create a small cube of Rubik's Cube
 function createSmallCube() {
-  const smallCubeGeometry = new THREE.BoxGeometry(1, 1, 1);
-  const faceMaterials = [
-    new THREE.MeshBasicMaterial({ color: "rgb(235, 87, 87)" }), // red
-    new THREE.MeshBasicMaterial({ color: "rgb(234, 143, 87)" }), // orange
-    new THREE.MeshBasicMaterial({ color: "rgb(124, 172, 217)" }), // blue
-    new THREE.MeshBasicMaterial({ color: "rgb(180, 219, 130)" }), // green
-    new THREE.MeshBasicMaterial({ color: "rgb(255, 251, 234)" }), // white
-    new THREE.MeshBasicMaterial({ color: "rgb(243, 236, 135)" }), // yellow
-  ];
-  return new THREE.Mesh(smallCubeGeometry, faceMaterials);
+    const smallCubeGeometry = new THREE.BoxGeometry(1, 1, 1);
+    const faceMaterials = [
+        new THREE.MeshBasicMaterial({ color: "rgb(235, 87, 87)" }), // red
+        new THREE.MeshBasicMaterial({ color: "rgb(234, 143, 87)" }), // orange
+        new THREE.MeshBasicMaterial({ color: "rgb(124, 172, 217)" }), // blue
+        new THREE.MeshBasicMaterial({ color: "rgb(180, 219, 130)" }), // green
+        new THREE.MeshBasicMaterial({ color: "rgb(255, 251, 234)" }), // white
+        new THREE.MeshBasicMaterial({ color: "rgb(243, 236, 135)" }), // yellow
+    ];
+    return new THREE.Mesh(smallCubeGeometry, faceMaterials);
 }
 
 // Create the Rubik's Cube (3x3x3)
 const rubiksCube = new THREE.Group();
 const cubeOffset = 1.05; // Slightly more than the size of a small cube to add some spacing
 for (let x = 0; x < 3; x++) {
-  for (let y = 0; y < 3; y++) {
-    for (let z = 0; z < 3; z++) {
-      // skip the inner cubes as they are not visible
-      if (x === 1 && y === 1 && z === 1) continue;
-      
-      const smallCube = createSmallCube();
-      smallCube.position.set(
-        (x - 1) * cubeOffset,
-        (y - 1) * cubeOffset,
-        (z - 1) * cubeOffset
-      );
-      rubiksCube.add(smallCube);
+    for (let y = 0; y < 3; y++) {
+        for (let z = 0; z < 3; z++) {
+            // Skip the inner cubes as they are not visible
+            if (x === 1 && y === 1 && z === 1) continue;
+
+            const smallCube = createSmallCube();
+            smallCube.position.set(
+                (x - 1) * cubeOffset,
+                (y - 1) * cubeOffset,
+                (z - 1) * cubeOffset
+            );
+            rubiksCube.add(smallCube);
+        }
     }
-  }
 }
+
 
 scene.add(rubiksCube);
 
 camera.position.z = 10;
 
+let initialRotationFrames = 100; // Faster initial rotation frames for 1-second rotation
+let currentRotationFrames = initialRotationFrames;
+
+let startTime = Date.now();
+let transitionDuration = 4500; // Transition duration in milliseconds
+
 function animate() {
-  requestAnimationFrame(animate);
+    requestAnimationFrame(animate);
 
-  if (!isDragging) {
-    rubiksCube.rotation.x += 0.001;
-    rubiksCube.rotation.y += 0.001;
-  }
+    if (currentRotationFrames > 0) {
+        rubiksCube.rotation.x += initialRotationSpeed;
+        rubiksCube.rotation.y += initialRotationSpeed;
+        currentRotationFrames--;
+    } else {
+        if (!isDragging) {
+            let elapsedTime = Date.now() - startTime;
 
-  renderer.render(scene, camera);
+            if (elapsedTime < transitionDuration) {
+                // Gradual transition of rotation speed over 1 second
+                currentRotationSpeed = initialRotationSpeed - (initialRotationSpeed - 0.001) * (elapsedTime / transitionDuration);
+            }
+
+            // Continue rotation at the final speed
+            rubiksCube.rotation.x += currentRotationSpeed;
+            rubiksCube.rotation.y += currentRotationSpeed;
+        }
+    }
+
+    renderer.render(scene, camera);
 }
 
-// start the animation loop
+// Start the animation loop
 animate();
 
 // Add event listeners for mouse input
