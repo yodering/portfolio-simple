@@ -13,6 +13,7 @@ canvas {
     height: 100vh;
     z-index: 0; 
     user-select: none;
+    cursor:none;
 }
 
 html, body {
@@ -20,6 +21,7 @@ html, body {
     padding: 0;
     background-color: #110b11;
     overflow:hidden;
+    cursor:none;
 }
 
 
@@ -53,6 +55,7 @@ svg path {
 
 .text:hover {
     letter-spacing: 6px; 
+    cursor:none;
 }
 
 
@@ -84,6 +87,7 @@ span {
 .landing a {
     display: block;
     margin-right: 10px;
+    cursor:none;
 }
 
 
@@ -140,3 +144,14 @@ footer {
 
 
 
+.circle {
+    height: 20px;
+    width: 20px;
+    border-radius: 24px;
+    background-color: #edf2ef;
+    position: fixed; 
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 99999999; /* so that it stays on top of all other elements */
+  }
