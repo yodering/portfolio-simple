@@ -3,103 +3,100 @@
     src: url('brassmono.ttf') format('truetype');
 }
 
-canvas {
-    display: block;
-    position: fixed;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100%;
-    height: 100vh;
-    z-index: 0; 
-    cursor:none;
-}
 
-html, body {
+
+html {
     margin: 0;
     padding: 0;
     background-color: #110b11;
-    cursor:none;
 }
 
-
-.intro { /* description text */
-    color: #edf2ef;
-    font-family: 'BrassMono', monospace;
-    text-shadow: 2px 2px #666466;
-    align-content: center;
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    background-color: #110b11;
+    overflow: hidden;
+    overflow-y: hidden;
 }
 
-svg path {
-    fill: #edf2ef; 
+.container {
+    display: flex;
+    align-items: center;
 }
 
-a {
+.regular {
     color: #edf2ef;
     text-decoration: none;
-    font-size: 30px;
     text-shadow: 2px 2px #666466;
     letter-spacing: 0;
     transition: text-shadow 0.3s ease, letter-spacing 0.3s ease, transform 0.5s ease;
     display: inline-block; 
     box-sizing: border-box;
     text-indent: initial;
-    cursor:none;
+}
+
+.regular:hover{
+    letter-spacing: 6px;
 }
 
 
-a:hover {
+
+.p1 {
+    color: #edf2ef;
+    font-family: 'BrassMono', monospace;
+    font-size:20px;
+}
+
+.a-red {
+    color: #edf2ef;
+    text-decoration: none;
+    text-shadow: 2px 2px #e75353;
+    letter-spacing: 0;
+    transition: text-shadow 0.3s ease, letter-spacing 0.3s ease, transform 0.5s ease;
+    display: inline-block; 
+    box-sizing: border-box;
+    text-indent: initial;
+}
+
+.a-red:hover {
     letter-spacing: 6px; 
 }
 
-@keyframes jump {
-    0%, 100% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-5px); 
-    }
-}
 
-a:not(:hover) {
-    animation: jump 1s infinite;
-}
+
 
 
 p {
-    font-size: 30px;
-    text-indent: 30px;
-}
-
-span {
-    font-size: 30px;
+    color: #edf2ef;
+    font-family: 'BrassMono', monospace;
+    font-size:25px;
 }
 
 
-.landing {
-    min-height: 100vh; 
-    display: flex;
-    justify-content: center;
-    z-index: 1; 
-    position: relative;
-    margin-top: 80vh; /* Adjust this value as needed */
+
+
+.a-selected {
+    color: #edf2ef;
+    text-decoration: none;
+    text-shadow: 2px 2px #26a3c2;
+    letter-spacing: 0;
+    transition: text-shadow 0.3s ease, letter-spacing 0.3s ease, transform 0.5s ease;
+    display: inline-block; 
+    box-sizing: border-box;
+    text-indent: initial;
 }
 
 
-.other {
-    min-height: 100vh; 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 1; 
-    position: relative;
-}
 
 
 
 footer {
     font-family: 'BrassMono', monospace;
-    font-size: 30px;
+    font-size: 20px;
     text-align: center;
     position: fixed;
     bottom: 0;
@@ -107,7 +104,6 @@ footer {
     padding: 20px 0; 
     background-color: #110b11; 
     z-index: 1;
-    cursor:none;
 }
 
 
@@ -124,8 +120,103 @@ footer {
   }
 
 
+  .list {
+    text-align: left;
+    margin-right: 5vh; 
+}
+
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 200px); 
+    gap: 5px; 
+    justify-content: center;
+    align-items: center;
+    margin-left: 20px; 
+    overflow: auto; 
+    max-height: 70vh; 
+    overflow-x: hidden;
+}
+
+.image-grid img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    max-height: 200px; 
+    border-radius: 10px;
+    margin: 2px;
+}
+
+
+
+
+.image-grid-g {
+    gap: 5px; 
+    justify-content: center;
+    align-items: center;
+    margin-left: 20px; 
+    overflow: hidden; 
+    max-height: 70vh; 
+    overflow-x: hidden;
+}
+
+.image-grid-g img.graphify-image {
+    width: 640px; 
+    height: 360px; 
+    border-radius: 10px;
+    margin: 2px;
+}
 
 
 
 
 
+.other {
+    min-height: 100vh; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1; 
+    position: relative;
+}
+
+span {
+    font-size: 30px;
+}
+
+
+.intro { /* description text */
+    color: #edf2ef;
+    font-family: 'BrassMono', monospace;
+    text-shadow: 2px 2px #666466;
+    align-content: center;
+}
+
+
+
+
+.image-container {
+    position: relative;
+    transition: filter 0.3s ease;
+}
+
+.overlay-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    color: #edf2ef;
+    font-family: 'BrassMono', monospace;
+    font-size: 16px;
+    text-align: center;
+    transition: opacity 0.3s ease;
+    cursor:pointer;
+}
+
+.image-container:hover .overlay-text {
+    opacity: 1;
+}
+
+.image-container:hover{
+    filter: grayscale(100%);
+}
