@@ -45,7 +45,7 @@ svg path {
     font-size: 30px;
     text-shadow: 2px 2px #666466;
     letter-spacing: 0;
-    transition: text-shadow 0.3s ease, letter-spacing 0.3s ease, transform 0.5s ease;
+    transition: text-shadow 0.3s ease;
     display: inline-block; 
     box-sizing: border-box;
     text-indent: initial;
@@ -54,7 +54,7 @@ svg path {
 
 
 .text:hover {
-    letter-spacing: 6px; 
+    text-shadow: 2px 2px #edf2ef;
 
 }
 

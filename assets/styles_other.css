@@ -32,14 +32,14 @@ body {
     text-decoration: none;
     text-shadow: 2px 2px #666466;
     letter-spacing: 0;
-    transition: text-shadow 0.3s ease, letter-spacing 0.3s ease, transform 0.5s ease;
+    transition: text-shadow 0.3s ease;
     display: inline-block; 
     box-sizing: border-box;
     text-indent: initial;
 }
 
 .regular:hover{
-    letter-spacing: 6px;
+    text-shadow: 2px 2px #edf2ef;
 }
 
 
@@ -55,14 +55,14 @@ body {
     text-decoration: none;
     text-shadow: 2px 2px #e75353;
     letter-spacing: 0;
-    transition: text-shadow 0.3s ease, letter-spacing 0.3s ease, transform 0.5s ease;
+    transition: text-shadow 0.3s ease;
     display: inline-block; 
     box-sizing: border-box;
     text-indent: initial;
 }
 
 .a-red:hover {
-    letter-spacing: 6px; 
+    text-shadow: 2px 2px #edf2ef;
 }
 
 
@@ -81,7 +81,7 @@ p {
 .a-selected {
     color: #edf2ef;
     text-decoration: none;
-    text-shadow: 2px 2px #26a3c2;
+    text-shadow: 2px 2px #edf2ef;
     letter-spacing: 0;
     transition: text-shadow 0.3s ease, letter-spacing 0.3s ease, transform 0.5s ease;
     display: inline-block; 
@@ -107,23 +107,23 @@ footer {
 
 
 
-  .list {
+.list {
     text-align: left;
-    margin-right: 5vh; 
-    overflow-y: auto; 
-    max-height: 80vh; 
+    margin-right: 5vh;
+    overflow-y: auto;
+    max-height: 80vh;
     padding-right: 15px;
 }
 
 .image-grid {
     display: grid;
-    grid-template-columns: repeat(3, 200px); 
-    gap: 5px; 
+    grid-template-columns: repeat(3, 1fr);
+    gap: 5px;
     justify-content: center;
     align-items: center;
-    margin-left: 20px; 
-    overflow: auto; 
-    max-height: 70vh; 
+    margin-left: 20px;
+    overflow: auto;
+    max-height: 70vh;
     overflow-x: hidden;
     padding-right: 15px;
 }
